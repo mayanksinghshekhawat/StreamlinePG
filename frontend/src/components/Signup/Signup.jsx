@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom';
+import './Signup.css'
 function Signup() {
   const Navigate = useNavigate();
   const [data, setData] = useState({
@@ -43,8 +44,12 @@ const registerUser = async (e)=>{
 
   return (
     <>
-    <div>
-      <form onSubmit={registerUser}>
+    <div className="signup-container">
+      <div className="image-container">
+        <img src="https://via.placeholder.com/400" alt="Placeholder" />
+      </div>
+    <div className='container'>
+      <form onSubmit={registerUser} className='form-container'>
       <label>
         First Name:
         <input type="text" placeholder="Enter First Name" value={data.fname} onChange={(e) => setData({ ...data, fname: e.target.value })} />
@@ -83,6 +88,7 @@ const registerUser = async (e)=>{
       </label>
       <button type="submit">Submit</button>
     </form>
+    </div>
     </div>
     </>
   )
