@@ -7,8 +7,8 @@ import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
 import Signup from './components/Signup/Signup.jsx';
 import Layout from './Layout.jsx'
-
-
+import { UserContextProvider } from '../context/userContext.jsx'
+import Dashboard from './components/Dashboard/Dashboard.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -28,12 +28,18 @@ const router =createBrowserRouter([
         element : <Signup />
 
       },
+      {
+        path: "Dashboard",
+        element : <Dashboard />
+
+      },
     ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <UserContextProvider>
   <React.StrictMode>
    <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode></UserContextProvider>
 )
