@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-function Navbar() {
+import './Header.css'
+function Header() {
   return (
     <div><Link to="/">HOME</Link>
     <Link to="/signup">Signup</Link>
@@ -9,4 +10,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Header
