@@ -123,37 +123,42 @@ a{
     margin: 10px 10px;
 
 }
-.profile-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-family: Inter;
-    height: 100%;
+.profile-text {
+    display: flex; /* Use Flexbox */
+    flex-direction: row; /* Stack items horizontally */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Align items horizontally */
+    width: 70%;
 }
-.ownerInfo{
-    font-size: 20px;
-    font-weight: bold;
-    height:20%;
+
+.chart-total {
+    margin-right: 10px; /* Add some space between the chart and text */
+    margin-left: -150px;
+    max-height: 70%;
 }
-.property-total{
+/* .profile-text{
     display: flex;
-    /* flex-direction: column; */
-    max-height: 50%;
+    text-align: center;
     gap: 0.3rem;
     font-size: 15px;
     font-weight: 600;
+    font-family: Inter;
+    
 }
-.data1{
-    max-height: 100%;
+.chart-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 70%;
 }
 .data1-text{
+    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     font-size: 15px;
     font-weight: 600;
-}
+} */
 .profile-images img{
     max-height: 100%;
 }

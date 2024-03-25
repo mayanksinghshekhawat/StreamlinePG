@@ -2,26 +2,65 @@ import {useContext} from 'react';
 import { UserContext } from "../../../context/userContext"
 import './Dashboard.css'
 import houseImage from './house.png';
+import ChartDataLabels from "chartjs-plugin-datalabels";
+
+ChartJS.register(ArcElement, Tooltip, Legend,ChartDataLabels);
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 // import '.../assets/house.png'
 function Dashboard() {
-  const data = {
-    labels: ['Value 1', 'Value 2', 'Value 3'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
-
-  const options = {
-    cutoutPercentage: 80, // Adjust this value to cut out more or less from the center
-  };
+    let data= [
+        {
+          label: "Label 1",
+          value: 55,
+          color: "rgba(0, 43, 73, 1)",
+          cutout: "50%",
+        },
+        {
+          label: "Label 2",
+          value:15,
+          color: "rgba(0, 103, 160, 1)",
+          cutout: "50%",
+        },
+        {
+          label: "Label 3",
+          value: 80,
+          color: "rgba(83, 217, 217, 1)",
+          cutout: "50%",
+        },
+      ]
+      
+      const options = {
+        plugins: {
+          responsive: true,
+          legend: {
+            display: false // Hide legend
+          },
+          tooltip: {
+            enabled: false // Hide tooltip
+          },
+          datalabels: {
+            display: false // Hide data labels
+          }
+        },
+        cutout: data.map((item) => item.cutout),
+      };
+      
+      
+        const finalData = {
+          labels: data.map((item) => item.label),
+          datasets: [
+            {
+              data: data.map((item) => Math.round(item.value)),
+              backgroundColor: data.map((item) => item.color),
+              borderColor: data.map((item) => item.color),
+              borderWidth: 1,
+              dataVisibility: new Array(data.length).fill(true),
+            },
+          ],
+        };
     // const {user} = useContext(UserContext);
     // console.log(user.name);
     return (
@@ -37,7 +76,7 @@ function Dashboard() {
                             <a href="#">Dashboard</a>
                         </div>
                         <div className="link">
-                            <a href="#">Properties</a>
+                            <a href="/PropertyForm">Properties</a>
                         </div>
                         <div className="link">
                             <a href="#">Clients</a>
@@ -63,22 +102,22 @@ function Dashboard() {
                     <div className="profileRevenue">
                         <div className="profile">
                             <div className="profile-text">
-                                <div className="ownerInfo">
-                                    Hi UserName ! Welcome,
-                                </div>
-                                <div className="property-total">
+                                
                                     <div className="chart-total">
-                                    <Doughnut data={data} className='data1' options={options} />
+                                    <Doughnut data={finalData} options={options} />
                                     </div>
                                     <div className="data1-text">
-                                    <span> | 63 vacant </span>
-                                    <span> | 63 vacant </span>
-                                    <span> | 63 vacant </span>
-                                    </div>
+    <div className="separator"></div>
+    <span>63 vacant</span>
+    <div className="separator"></div>
+    <span>63 vacant</span>
+    <div className="separator"></div>
+    <span>63 vacant</span>
+</div> 
                                     
                                     {/* <span> | </span><h3>63</h3><h4>vacant</h4>
                                     <span> | </span><h3>63</h3><h4>vacant</h4> */}
-                                </div>
+                                
                             </div>
                             <div className="profile-images">
                             <img src={houseImage} alt="Placeholder" />

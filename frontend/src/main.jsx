@@ -7,6 +7,7 @@ import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
 import Signup from './components/Signup/Signup.jsx';
 import Layout from './Layout.jsx'
+import PropertyForm from './components/AddProp/PropertyForm.jsx'
 import { UserContextProvider } from '../context/userContext.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 const router =createBrowserRouter([
@@ -33,6 +34,10 @@ const router =createBrowserRouter([
         element : <Dashboard />
 
       },
+      {
+        path: "PropertyForm",
+        element : <PropertyForm />
+      }
     ]
   }
 ]);
