@@ -10,6 +10,7 @@ import Layout from './Layout.jsx'
 import PropertyForm from './components/AddProp/PropertyForm.jsx'
 import { UserContextProvider } from '../context/userContext.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
+import Map from './components/Map/Map.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -37,6 +38,10 @@ const router =createBrowserRouter([
       {
         path: "PropertyForm",
         element : <PropertyForm />
+      },
+      {
+        path: "Map",
+        element : <Map />
       }
     ]
   }

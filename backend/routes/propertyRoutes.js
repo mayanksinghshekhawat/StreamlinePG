@@ -8,6 +8,7 @@ router.use(cors({
 }));
 
 router.post('/add', propertyController.addProperty);
+router.get('/map',propertyController.fetchProperty);
 
 router.put('/edit/:id', propertyController.editProperty);
 

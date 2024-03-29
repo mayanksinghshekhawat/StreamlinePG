@@ -44,3 +44,14 @@ exports.addProperty = async (req, res) => {
       res.status(500).json({ success: false, message: 'Failed to delete property' });
     }
 }
+
+//fetch prop:
+exports.fetchProperty = async (req, res) => {
+  try {
+    const city = req.query.city;
+    const locations = await Property.find({ city: city });
+    res.json(locations);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

@@ -3,7 +3,6 @@ import { UserContext } from "../../../context/userContext"
 import './Dashboard.css'
 import houseImage from './house.png';
 import ChartDataLabels from "chartjs-plugin-datalabels";
-
 ChartJS.register(ArcElement, Tooltip, Legend,ChartDataLabels);
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
