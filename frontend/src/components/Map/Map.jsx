@@ -5,10 +5,14 @@ import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
 import "./Map.css";
 import { FaRupeeSign } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import img1 from './img1.jpg';
 import img2 from './img2.jpg';
 import img3 from './img3.jpg';
 import main from './main.webp';
+import { MdReadMore } from "react-icons/md";
+import more from './more.svg'
+// import { IonAvatar, IonChip, IonLabel } from '@ionic/react';
 const Map = () => {
   const [city, setCity] = useState("");
   const [locations, setLocations] = useState([]);
@@ -33,8 +37,18 @@ const Map = () => {
   return (
     <div className="discover">
       <div className="sideBar">
-        <button className="shadow__btn">StreamlinePG</button>
-
+      <div className="card">
+  <div className="card-border-top">
+  </div>
+  <div className="img">
+  </div>
+  <span> Person</span>
+  <p className="job"> Job Title</p>
+  {/* <button> Click
+  </button> */}
+</div>
+        {/* <button className="shadow__btn">StreamlinePG</button> */}
+    
         <div className="Links">
           <button className="btn">Home</button>
           <button className="btn">Favourites</button>
@@ -53,10 +67,17 @@ const Map = () => {
         </button>
       </div>
       <div className="Content">
-        <div className="Profile"></div>
+        <div className="Latest">
+          <div className="discoverText">
+          <span style={{"font-size":"15px","color":"Grey","margin-left":"10px"}}>Discover</span>
+          </div>
+          <div className="LatestText">
+            <span style={{"font-size":"15px","color":"Black","margin-right":"10px"}}>Latest in Town</span>
+          </div>
+        </div>
         <div className="loc-pricings">
           <div className="location">
-          <FaLocationDot /><span style={{"font-size":"15px",},{"margin-left":"10px"}}>814 A 5th Ave. Delhi</span>
+          <FaLocationDot /><span style={{"font-size":"15px","margin-left":"10px"}}>814 A 5th Ave. Delhi</span>
           </div>
           <div className="pricing">
             <div className="rupees"><FaRupeeSign /><span>10,500</span></div>
@@ -68,16 +89,17 @@ const Map = () => {
         </div>
         <div className="smallImg">
           <div className="pehli">
-          <img className="imgMain" src={img1} alt="house"/>
+          <img className="imgMain" src={main} alt="house"/>
           </div>
           <div className="pehli">
-          <img className="imgMain" src={img2} alt="house"/>
+          <img className="imgMain" src={main} alt="house"/>
           </div>
           <div className="pehli">
-          <img className="imgMain" src={img3} alt="house"/>
+          <img className="imgMain" src={main} alt="house"/>
           </div>
           <div className="seemore">
-            
+            <div className="logomore">
+          <img className="seemoreImg" src={more} alt="house"/></div>
           </div>
         </div>
         <div className="contacts">
@@ -85,9 +107,7 @@ const Map = () => {
           <button className="shadow__btn">Contact</button></div>
 <div className="rent_btn">
 <button className="shadow__btn">Rent</button>
-</div>
-          
-       
+</div>      
         </div>
       </div>
       <div className="map-container">
