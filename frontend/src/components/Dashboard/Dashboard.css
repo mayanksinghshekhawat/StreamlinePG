@@ -14,14 +14,15 @@
       gap: 10px;
 }
 .sidebar{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    top: 0;
     width: 20%;
-    /* background-color: #1252ae; #ddebf2        #fbca5a */
-    background-color: white; 
-    /* border-right: 1px dotted #1252ae;   */
+    display: flex;
+      flex-direction: column;
+      /* justify-content:space-between; */
+      gap: 3rem;
+      align-items: center;
+      /* background-color: #1252ae; #ddebf2        #fbca5a */
+      background-color: white; 
 }
 .links{
     display: flex;
@@ -33,7 +34,7 @@ a{
     /* background-color: red; */
     text-decoration: none;
     color: black;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
   .link {
     border-radius: 6px;
