@@ -7,8 +7,8 @@ const test = (req,res)=>{
 }
 const userRegister = async (req,res)=>{
     try {
-        const {fname , lname , email ,password ,age , phone , selectgender ,address} = req.body;
-        if(!fname || !lname || !email ||!password || !age || !phone || !selectgender || !address){
+        const {fname , lname , email ,password ,age , phone , selectgender ,selecttype,address} = req.body;
+        if(!fname || !lname || !email ||!password || !age || !phone || !selectgender ||!selecttype || !address){
             return res.json({
                 error : 'Please fill all the fields'
             });
@@ -24,7 +24,7 @@ const userRegister = async (req,res)=>{
                 error : 'User already exist'
             });
         }
-        const user = await User.create({fname , lname , email ,password, age , phone , selectgender ,address});
+        const user = await User.create({fname , lname , email ,password, age , phone , selectgender ,selecttype,address});
         console.log(user);
         return res.status(200).json(user);
     } catch (error) {

@@ -11,6 +11,7 @@ import PropertyForm from './components/AddProp/PropertyForm.jsx'
 import { UserContextProvider } from '../context/userContext.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import Map from './components/Map/Map.jsx'
+import Login1 from './components/Login/Login1.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -22,7 +23,7 @@ const router =createBrowserRouter([
       },
       {
         path: "Login",
-        element : <Login />
+        element : <Login1 />
 
       },
       {

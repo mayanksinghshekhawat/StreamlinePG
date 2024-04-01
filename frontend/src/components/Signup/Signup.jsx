@@ -14,11 +14,12 @@ function Signup() {
     age: '',
     phone: '',
     selectgender: '',
+    selecttype: '',
     address: ''
   });
 const registerUser = async (e)=>{
   e.preventDefault();
-  const {fname , lname , email ,password, age , phone , selectgender ,address} = data;
+  const {fname , lname , email ,password, age , phone , selectgender,selecttype,address} = data;
   try {
     const {data} = await axios.post('/signup',{
       fname,
@@ -28,6 +29,7 @@ const registerUser = async (e)=>{
       age,
       phone,
       selectgender,
+      selecttype,
       address
     })
     if(data.error){

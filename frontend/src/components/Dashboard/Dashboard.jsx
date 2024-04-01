@@ -70,7 +70,7 @@ function Dashboard() {
             {/* <h1>Dashboard</h1> */}
             {/* <p>Welcome {user.name}</p> */}
             <div className="main">
-            <div className="sideBar">
+            <div className="sidebar">
       <div className="card">
   <div className="card-border-top">
   </div>
@@ -103,7 +103,7 @@ function Dashboard() {
 
                 <div className="content">
                     <div className="header-text">
-                        <div className="text">Dashboard</div>
+                        <div className="text">Dashboard</div>\
                         <div className="images">
                             <div className="search">icons</div>
                         </div>
