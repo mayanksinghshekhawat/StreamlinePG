@@ -1,0 +1,43 @@
+
+.features_home{
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+.card1{
+    /* padding:20px; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 25%;
+    height: 100%;
+    border-radius: 10px;
+    /* margin-right: 20px; */
+    box-shadow:  0 5px 15px rgba(0, 0, 0, 0.35);
+}
+.icon11{
+    padding-top: 10px;
+    max-height: 50px;
+    max-width: 50px;
+}
+.para{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+     
+}
+.card1:hover{
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.para1{
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding-bottom: 5px;
+}

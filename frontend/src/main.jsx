@@ -12,6 +12,7 @@ import { UserContextProvider } from '../context/userContext.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import Map from './components/Map/Map.jsx'
 import Login1 from './components/Login/Login1.jsx'
+import Card from './components/Cards/Card.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
