@@ -1,0 +1,70 @@
+.header {
+    background-image: url("../../assets/header.jpg");
+    background-size: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px;
+  }
+  
+  /* Reset some default styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #edf2f7; */
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  nav .logo {
+    
+    flex: 1;
+    text-align: center;
+  }
+  
+  nav .logo h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav .logo h2 span:first-child {
+    color: #4299e1;
+  }
+  
+  nav .logo h2 span:last-child {
+    color: #ed8936;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
