@@ -9,7 +9,7 @@ function Layout() {
     <>
     <Toaster position='bottom-right' toastOptions={{duration :2000}} />
     <Header />
-    <Outlet />
+    <Outlet /> 
     <Footer />
   </>
   )
