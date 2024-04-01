@@ -1,7 +1,7 @@
 
 const User = require('../models/user')
 const jwt = require('jsonwebtoken');
-
+const RentHome = require('../models/RentHome');
 const test = (req,res)=>{
     res.json("Hello World");
 }
@@ -84,7 +84,21 @@ const getProfile =(req,res)=>{
         res.json(null);
     }
 }
- 
+const houseForm = async (req,res)=>{
+    try {
+        const {email,roomType} = req.body;
+        if(!email || !roomType){
+            return res.json({
+                error : 'Please fill all the fields'
+            });
+        }
+        const rentHome = await RentHome.create({ email ,roomType});
+        console.log(rentHome);
+        return res.status(200).json(rentHome);
+    } catch (error) {
+        console.error(error);
+    }
+}
 module.exports = {
-    test , userRegister , userLogin , getProfile
+    test , userRegister , userLogin , getProfile ,houseForm
 }

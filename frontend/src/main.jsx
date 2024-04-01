@@ -13,6 +13,7 @@ import Dashboard from './components/Dashboard/Dashboard.jsx'
 import Map from './components/Map/Map.jsx'
 import Login1 from './components/Login/Login1.jsx'
 import Card from './components/Cards/Card.jsx'
+import HouseForm from './components/HouseForm/HouseForm.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -44,6 +45,9 @@ const router =createBrowserRouter([
       {
         path: "Map",
         element : <Map />
+      },{
+        path: "HouseForm",
+        element : <HouseForm />
       }
     ]
   }
