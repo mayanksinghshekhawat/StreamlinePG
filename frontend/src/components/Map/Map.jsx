@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker,Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
 import "./Map.css";
 import { FaRupeeSign } from "react-icons/fa";
@@ -11,12 +11,16 @@ import img2 from './img2.jpg';
 import img3 from './img3.jpg';
 import main from './main.webp';
 import { MdReadMore } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 import more from './more.svg'
 // import { IonAvatar, IonChip, IonLabel } from '@ionic/react';
 const Map = () => {
   const [city, setCity] = useState("");
   const [locations, setLocations] = useState([]);
-
+  const [hoveredHouse, setHoveredHouse] = useState(null);
+  const [roomType, setRoomType] = useState("");
+  const [userType, setUserType] = useState("");
+  const [priceRange, setPriceRange] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -28,6 +32,7 @@ const Map = () => {
       console.error("Error fetching locations:", error);
     }
   };
+  
 
   const initialCenter =
     locations.length > 0
@@ -35,27 +40,15 @@ const Map = () => {
       : [0, 0];
 
   return (
-    <div className="discover">
-      <div className="sideBar">
-      <div className="card">
-  <div className="card-border-top">
-  </div>
-  <div className="img">
-  </div>
-  <span> Person</span>
-  <p className="job"> Job Title</p>
-  {/* <button> Click
-  </button> */}
-</div>
-        {/* <button className="shadow__btn">StreamlinePG</button> */}
     
-        <div className="Links">
-          <button className="btn">Home</button>
-          <button className="btn">Favourites</button>
-          <button className="btn">Hover me</button>
-          <button className="btn">Hover me</button>
+    <div className="mainDiscover">
+      <div className="topProfile">
+        <div className="img">
+          {/* <img  src={} alt="" /> */}
+          <CgProfile />
         </div>
-
+        <div className="name">
+        </div>
         <button className="Btn">
           <div className="sign">
             <svg viewBox="0 0 512 512">
@@ -66,49 +59,79 @@ const Map = () => {
           <div className="text">Logout</div>
         </button>
       </div>
+      <div className="filters">
+        <form>
+        <select value={roomType} onChange={(e) => setRoomType(e.target.value)}>
+            <option value="">Select Room Type</option>
+            <option value="oneSeaterRooms">One Seater</option>
+            <option value="twoSeaterRooms">Two Seater</option>
+          </select>
+          <select value={userType} onChange={(e) => setUserType(e.target.value)}>
+            <option value="">Select Type</option>
+            <option value="owner">Owner</option>
+            <option value="customer">Customer</option>
+          </select>
+          <select value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
+            <option value="">Select Price Range</option>
+            <option value="5000">Below 5000</option>
+            <option value="10000">Below 10000</option>
+          </select>
+        </form>
+      </div>
+    <div className="discover">
+      
       <div className="Content">
-        <div className="Latest">
-          <div className="discoverText">
-          <span style={{"font-size":"15px","color":"Grey","margin-left":"10px"}}>Discover</span>
-          </div>
-          <div className="LatestText">
-            <span style={{"font-size":"15px","color":"Black","margin-right":"10px"}}>Latest in Town</span>
-          </div>
+      {locations.filter(house => house.oneSeaterPrice <= priceRange).map((house) => (
+    <div className="firstHome" key={house._id}  onMouseEnter={() => setHoveredHouse(house)}
+    onMouseLeave={() => setHoveredHouse(null)}>
+      <div className="Latest">
+        <div className="discoverText">
+          <span style={{ fontSize: "15px", color: "Grey", marginLeft: "10px" }}>Discover</span>
         </div>
-        <div className="loc-pricings">
-          <div className="location">
-          <FaLocationDot /><span style={{"font-size":"15px","margin-left":"10px"}}>814 A 5th Ave. Delhi</span>
-          </div>
-          <div className="pricing">
-            <div className="rupees"><FaRupeeSign /><span>10,500</span></div>
+        <div className="LatestText">
+          <span style={{ fontSize: "15px", color: "Black", marginRight: "10px" }}>Latest in Town</span>
+        </div>
+      </div>
+      <div className="loc-pricings">
+        <div className="location">
+          <FaLocationDot /><span style={{ fontSize: "15px", marginLeft: "10px" }}>{house.city}</span>
+        </div>
+        <div className="pricing">
+          <div className="rupees"><FaRupeeSign /><span>{house.oneSeaterPrice}</span></div>
           <span>per month</span>
-          </div>
         </div>
-        <div className="mainImg">
-          <img className="imgMain" src={main} alt="house"/>
-        </div>
-        <div className="smallImg">
+      </div>
+      <div className="mainImg">
+        <img className="imgMain" src={main} alt="house" />
+      </div>
+      <div className="smallImg">
           <div className="pehli">
-          <img className="imgMain" src={main} alt="house"/>
-          </div>
-          <div className="pehli">
-          <img className="imgMain" src={main} alt="house"/>
+            <img className="imgMain" src={main} alt="house" />
           </div>
           <div className="pehli">
-          <img className="imgMain" src={main} alt="house"/>
+            <img className="imgMain" src={main} alt="house" />
           </div>
-          <div className="seemore">
-            <div className="logomore">
-          <img className="seemoreImg" src={more} alt="house"/></div>
+          <div className="pehli">
+            <img className="imgMain" src={main} alt="house" />
+          </div>
+      
+        <div className="seemore">
+          <div className="logomore">
+            <img className="seemoreImg" src={more} alt="house" />
           </div>
         </div>
-        <div className="contacts">
-          <div className="contact_btn">
-          <button className="shadow__btn">Contact</button></div>
-<div className="rent_btn">
-<button className="shadow__btn">Rent</button>
-</div>      
+      </div>
+      <div className="contacts">
+        <div className="contact_btn">
+          <button className="shadow__btn">Contact</button>
         </div>
+        <div className="rent_btn">
+          <button className="shadow__btn">Rent</button>
+        </div>
+      </div>
+      <br></br>
+    </div>
+  ))}
       </div>
       <div className="map-container">
         <form className="group" onSubmit={handleSubmit}>
@@ -135,10 +158,32 @@ const Map = () => {
             <Marker
               key={location._id}
               position={[location.latitude, location.longitude]}
-            />
+              opacity={hoveredHouse && hoveredHouse._id === location._id ? 1 : 0.5}
+                zIndexOffset={hoveredHouse && hoveredHouse._id === location._id ? 1000 : 0}
+              > 
+                  <Popup>
+                  <div className="popup-content">
+                    <div className="popup-image">
+                      <img src={main} alt="House" />
+                    </div>
+                    <div className="popup-details">
+                      <div className="location">
+                        <FaLocationDot /><span>{location.city}</span>
+                      </div>
+                      <div className="pricing">
+                        <div className="rupees"><FaRupeeSign /><span>{location.oneSeaterPrice}</span></div>
+                        <span>per month</span>
+                      </div>
+                    </div>
+                  </div>
+                </Popup>
+              
+              </Marker>
+            
           ))}
         </MapContainer>
       </div>
+    </div>
     </div>
   );
 };
