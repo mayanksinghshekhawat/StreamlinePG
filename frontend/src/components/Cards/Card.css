@@ -1,5 +1,6 @@
 
 .features_home{
+    text-align: center;
     display: flex;
     justify-content: center;
     height: 150px;
