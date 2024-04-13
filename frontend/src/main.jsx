@@ -15,6 +15,8 @@ import Login1 from './components/Login/Login1.jsx'
 import Card from './components/Cards/Card.jsx'
 import HouseForm from './components/HouseForm/HouseForm.jsx'
 import PropertyDetails from './components/PropertyDetails/PropertyDetails.jsx'
+import RoomMate from './components/RoomMate/RoomMate.jsx'
+import Nearest from './components/Nearest/Nearest.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -53,7 +55,14 @@ const router =createBrowserRouter([
       {
         path: "PropertyDetails",
         element : <PropertyDetails />
-      }
+      },{
+        path: "RoomMate",
+        element : <RoomMate />
+      },
+      {
+        path: "Nearest",
+        element : <Nearest />
+      },
     ]
   }
 ]);

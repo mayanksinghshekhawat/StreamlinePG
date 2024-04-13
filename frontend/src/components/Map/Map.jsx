@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker,Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
@@ -15,12 +15,28 @@ import { CgProfile } from "react-icons/cg";
 import more from './more.svg'
 // import { IonAvatar, IonChip, IonLabel } from '@ionic/react';
 const Map = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Delhi");
   const [locations, setLocations] = useState([]);
   const [hoveredHouse, setHoveredHouse] = useState(null);
   const [roomType, setRoomType] = useState("");
   const [userType, setUserType] = useState("");
-  const [priceRange, setPriceRange] = useState("");
+  const [priceRange, setPriceRange] = useState("5000");
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const response = await axios.get("/api/property/map", {
+          params: { city, priceRange }, // Include city and price filter in the params
+        });
+        setLocations(response.data);
+      } catch (error) {
+        console.error("Error fetching locations:", error);
+      }
+    };
+    fetchLocations(); // Call the function when component mounts
+  }, []);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

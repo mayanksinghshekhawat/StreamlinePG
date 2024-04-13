@@ -37,55 +37,7 @@
   
   /* Apply animations to the hero elements */
 
-  .main-nav {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 10px 20px; 
-    background: none; 
-    color: white;
-  }
-  .main-nav button{
-    background-color: #512da8;
-    color: #fff;
-    font-size: 12px;
-    padding: 10px 25px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
   
-  .main-nav a {
-    margin-right: 20px; /* Add spacing between links */
-    text-decoration: none; /* Remove underline */
-    color: white; /* Font color */
-    font-weight: 700;
-    font-size: 18px
-  }
-  
-  .right a:hover {
-    cursor:pointer;
-  box-shadow: 0 0 5px #ff4000,
-              0 0 5px rgb(255, 60, 0),
-              0 0 10px rgb(255, 94, 0),
-              0 0 20px rgb(255, 174, 0);
-    
-  }
-  
-  .left {
-    flex: 1; 
-    
-  }
-  
-  .right {
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    gap: 0.5rem;
-  }
   
   /* Hero section styles */
   .hero-text {

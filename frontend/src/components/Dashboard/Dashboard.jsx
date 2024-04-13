@@ -1,6 +1,7 @@
-import {useContext} from 'react';
+import {useContext,useEffect,useRef} from 'react';
 import { UserContext } from "../../../context/userContext"
 import './Dashboard.css'
+import { Bar } from 'react-chartjs-2';
 import houseImage from './house.png';
 import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(ArcElement, Tooltip, Legend,ChartDataLabels);
@@ -8,9 +9,18 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import residents from './residents.png';
+import arrow from './arrow.png';
+import rentPaid from './rentPaid.png';
+import rentUnpaid from './rentUnpaid.png';
+import maintanence from './maintanence.png'
 ChartJS.register(ArcElement, Tooltip, Legend);
 // import '.../assets/house.png'
 function Dashboard() {
+
+  const firstValue = 735;
+  const secondValue = 6465;
+  const currentRange = 7200;
   const Navigate = useNavigate();
     let data= [
         {
@@ -62,8 +72,9 @@ function Dashboard() {
             },
           ],
         };
+        
     const {user} = useContext(UserContext);
-    const userName = user?.name || "Guest";
+    const userName = user?.name || "Refresh";
     // console.log(user.name);
     return (
         <div>
@@ -85,9 +96,9 @@ function Dashboard() {
     
         <div className="links">
         <Link to="/" className="btn">Home</Link>
-          <button className="btn">Favourites</button>
-          <button className="btn">Hover me</button>
-          <button className="btn">Hover me</button>
+          <button className="btn">Tenants List</button>
+          <button className="btn">Add Property</button>
+          <button className="btn">Manage</button>
         </div>
 
         <button className="Btn">
@@ -103,7 +114,7 @@ function Dashboard() {
 
                 <div className="content">
                     <div className="header-text">
-                        <div className="text">Dashboard</div>\
+                        <div className="text">Dashboard</div>
                         <div className="images">
                             <div className="search">icons</div>
                         </div>
@@ -134,25 +145,104 @@ function Dashboard() {
                             </div>
                             
                         </div>
-                        <div className="revenue"></div>
+                        <div className="revenue">
+                        <div className="card-container">
+      <div className="card-content">
+        <div className="card-title">Bills Collected</div>
+        <div className="values">
+          <div>$<span id="first">{firstValue}</span></div> /
+          <div>$<span id="second">{secondValue}</span></div>
+        </div>
+        <small className="current-range">
+          Current Status:
+          <div>$<span id="third">{currentRange}</span></div>
+        </small>
+        <div data-range="#third" data-value-1="#second" data-value-0="#first" className="slider">
+          <label className="label-min-value">1</label>
+          <label className="label-max-value">{secondValue}</label>
+        </div>
+        <div className="rangeslider">
+          <input className="min input-ranges" name="range_1" type="range" min="1" max={secondValue} value={currentRange} disabled />
+        </div>
+      </div>
+    </div>
+                        </div>
                     </div>
 
                     <div className="boxes">
-                        <div className="cards"></div>
-                        <div className="cards"></div>
-                        <div className="cards"></div>
-                        <div className="cards"></div>
+                        <div className="cards">
+                          <div className="residents">
+                            <div className="resiimg">
+                            <img src={residents} alt="Placeholder" className='residents'/>
+                            </div><div className="numberresi">
+                            Number of resident
+                          </div>
+                          </div>
+                          <div className="actualNumber">
+                            <div className="actualNums">10</div>
+                            <div className="seehere">
+                              <img src={arrow} alt="" />
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div className="cards">
+                        <div className="residents">
+                            <div className="resiimg">
+                            <img src={rentPaid} alt="Placeholder" className='residents'/>
+                            </div><div className="numberresi">
+                            Number (Rent Paid)
+                          </div>
+                          </div>
+                          <div className="actualNumber">
+                            <div className="actualNums">10</div>
+                            <div className="seehere">
+                              <img src={arrow} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="cards">
+                        <div className="residents">
+                            <div className="resiimg">
+                            <img src={rentUnpaid} alt="Placeholder" className='residents'/>
+                            </div><div className="numberresi">
+                            Number (Rent UnPaid)
+                          </div>
+                          </div>
+                          <div className="actualNumber">
+                            <div className="actualNums">0</div>
+                            <div className="seehere">
+                              <img src={arrow} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="cards">
+                        <div className="residents">
+                            <div className="resiimg">
+                            <img src={maintanence} alt="Placeholder" className='residents'/>
+                            </div><div className="numberresi">
+                            Maintainence Request
+                          </div>
+                          </div>
+                          <div className="actualNumber">
+                            <div className="actualNums">4</div>
+                            <div className="seehere">
+                              <img src={arrow} alt="" />
+                            </div>
+                          </div>
+                        </div>
                     </div>
 
                     <div className="charts">
-                        <div className="monthly"></div>
-                        <div className="billings"></div>
+                        <div className="monthly">
+                        </div>
+                        <div className="billings">
+                       
+                        </div>
                     </div>
 
                     <div className="residents"></div>
                 </div>
-
-
             </div>
         </div>
     )

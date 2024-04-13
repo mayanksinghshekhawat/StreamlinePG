@@ -1,15 +1,71 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import Card from '../Cards/Card'
 import Featured_prop from '../Feautered_prop/Featured_prop'
 import './Home.css'
+import { useSpring, animated,config } from 'react-spring';
 import FooterTop from '../PropertyDetails/FooterTop'
+import Header from '../Header/Header'
 function Home() {
+
+  const [scrollY, setScrollY] = useState(0);
+
+  // Update scroll position on scroll event
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  // Add event listener for scroll
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const featuredPropAnimation = useSpring({
+    opacity: scrollY >= 200 ? 1 : 0,
+    transform: scrollY >= 200 ? 'translateX(0)' : 'translateX(-100%)', // Slide from left to right
+    config: config.slow,
+  });
+
+  const parentHomeCardAnimation = useSpring({
+    opacity: scrollY >= 300 ? 1 : 0,
+    transform: scrollY >= 300 ? 'translateY(0)' : 'translateY(100px)',
+    config:config.slow
+  });
+
+
   return (
     <>
-       
+       <Header/>
+       <div className="helpingyou"><h1>Discover How we can Help You</h1></div>
  <Card/>
- <Featured_prop/>
- <div className="parentHomeCard">
+ <div className="exploreLAts">
+  <h1>Explore the Featured Properties</h1>
+ </div>
+ <animated.div style={featuredPropAnimation}>
+        <Featured_prop />
+      </animated.div>
+
+      <div className="howmany">
+        <div className="howmany1">
+          <h3>Homes for Rent</h3>
+          <h1>7199</h1>
+        </div>
+        <div className="howmany1">
+        <h3>States</h3>
+          <h1>19+</h1>
+        </div>
+        <div className="howmany1">
+        <h3>Agents</h3>
+          <h1>79</h1>
+        </div>
+        <div className="howmany1">
+        <h3>Roommies</h3>
+          <h1>719</h1>
+        </div>
+      </div>
+      <animated.div className="parentHomeCard" style={parentHomeCardAnimation}>
     <div className="homeCard1">
       <div className="extraInfo">
         <div className="upperText">
@@ -86,7 +142,7 @@ function Home() {
         </div>
       </div>
     </div>
-    </div>
+    </animated.div>
     <FooterTop/>
     </>
   )

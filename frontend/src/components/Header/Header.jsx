@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import { useSpring, animated } from 'react-spring';
-import PGlogo from './PGlogo.png'
 import finder from './finder.png'
+import NewNavbar from '../Navbar/NewNavbar'
 function Header() {
   const props = useSpring({
     from: { opacity: 0, transform: 'translateY(50px)', color: 'black' }, // Initial color is black
@@ -25,21 +25,6 @@ function Header() {
     <Link to="/signup">Signup</Link>
     <Link to="/login">Login</Link>
     </div> */}
-    <nav className='main-nav'>
-    <div className="left">
-            <Link to="/"><img className="logo" src={PGlogo} alt="logo"/></Link>
-            <Link to="/"><img className="logo" src={finder} alt="logo"/></Link>
-          </div>
-    <div className="right">
-    <Link to="/">Home</Link>
-    <Link to="/discover">Discover</Link>
-    <button onClick={() => handleSignupClick()}>Signup</button>
-    <button onClick={() => handleLoginClick()}>Login</button>
-    
-          </div>
-          
-   
-    </nav>
     <animated.div className="hero-text" style={props}>
   <h1 >Homes</h1>
 </animated.div>
