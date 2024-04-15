@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const propertyRoutes = require('./routes/propertyRoutes');
 require('dotenv').config();
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const {mongoose} = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/Pgfinder',{
+mongoose.connect(process.env.MONGO_URI,{
 
 }).then(()=>{
     console.log("Connection Successful");

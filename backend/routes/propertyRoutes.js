@@ -4,7 +4,7 @@ const propertyController = require('../controllers/propertyController');
 const cors = require('cors');
 router.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'
+    origin: process.env.FRONTEND_URL,
 }));
 
 router.post('/add', propertyController.addProperty);
