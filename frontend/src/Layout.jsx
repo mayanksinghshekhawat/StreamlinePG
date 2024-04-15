@@ -8,7 +8,7 @@ import NewNavbar from './components/Navbar/NewNavbar.jsx';
 function Layout() {
   return (
     <>
-    <Toaster position='bottom-right' toastOptions={{duration :2000}} />
+    <Toaster position='top-center' toastOptions={{duration :2000}} />
     <NewNavbar/>
     <Outlet /> 
     <Footer />

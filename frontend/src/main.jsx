@@ -17,6 +17,8 @@ import HouseForm from './components/HouseForm/HouseForm.jsx'
 import PropertyDetails from './components/PropertyDetails/PropertyDetails.jsx'
 import RoomMate from './components/RoomMate/RoomMate.jsx'
 import Nearest from './components/Nearest/Nearest.jsx'
+// import Find from './components/RoomMate/Find.jsx'
+import List from './components/RoomMate/List.jsx'
 const router =createBrowserRouter([
   {
     path:"/",
@@ -63,6 +65,15 @@ const router =createBrowserRouter([
         path: "Nearest",
         element : <Nearest />
       },
+      // {
+      //   path: "Find",
+      //   element : <Find />
+      // },
+      {
+        path: "List",
+        element : <List />
+      }
+
     ]
   }
 ]);

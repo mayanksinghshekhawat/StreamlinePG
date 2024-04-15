@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:white;
+}
+.announcement {
+    text-align: center;
+    font-size: 24px; /* You can adjust the size as needed */
+    margin-top: 20px;
+    color:black;
+    font-weight: 900;            
+}
+.announcement1 {
+    text-align: center;
+    font-size: 19px; /* You can adjust the size as needed */
+    margin-top: 20px;
+    color:black;            
+}
+.container1 {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    /* background-color: #FFD700; Yellow */
+    margin-bottom: 20px; /* Add margin bottom */
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.search-box p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.containerxx{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #FFA07A; Light Salmon */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Add margin top */
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    color: #800080; /* Purple */
+}
+
+p {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 20px;
+    color: #008080; /* Teal */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #4682B4; /* Steel Blue */
+}
+input[type="text"],
+select {
+width: 100%;
+padding: 8px;
+border: 1px solid #cccccc;
+border-radius: 3px;
+box-sizing: border-box;
+}
+
+

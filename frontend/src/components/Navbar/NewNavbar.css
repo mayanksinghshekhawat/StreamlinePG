@@ -1,12 +1,15 @@
+nav{
+  position: sticky;
+}
 .mainNav {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
     padding: 5px 20px; 
     /* margin: 0  20px; */
-    /* background: none;
-      */
-      background-color: #212121;
+    background: none;
+    /* position:fixed; */
+      /* background-color: #212121; */
     color: white;
     /* border-radius: 20px; */
   }

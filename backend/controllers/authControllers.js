@@ -2,6 +2,7 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const RentHome = require('../models/RentHome');
+const Roomy = require('../models/roomy');
 const test = (req,res)=>{
     res.json("Hello World");
 }
@@ -99,6 +100,38 @@ const houseForm = async (req,res)=>{
         console.error(error);
     }
 }
+
+const roomyForm = async (req,res)=>{
+    try {
+        const {propertyAddress,
+            fullName,
+            city,
+            email,
+            contactNumber,
+            profession,
+            roomType,
+            rentPerMonth} = req.body;
+        if(!propertyAddress || !fullName || !city || !email || !contactNumber || !profession || !roomType || !rentPerMonth){
+            return res.json({
+                error : 'Please fill all the fields'
+            });
+        }
+        const roomy = await Roomy.create({ propertyAddress,
+            fullName,
+            city,
+            email,
+            contactNumber,
+            profession,
+            roomType,
+            rentPerMonth});
+        console.log(roomy);
+        return res.status(200).json(roomy);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
 module.exports = {
-    test , userRegister , userLogin , getProfile ,houseForm
+    test , userRegister , userLogin , getProfile ,houseForm,roomyForm
 }

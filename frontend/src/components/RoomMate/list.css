@@ -1,0 +1,33 @@
+.list-room-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .list-room-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list-room-container form label {
+    margin-bottom: 10px;
+  }
+  
+  .list-room-container form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .list-room-container form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .list-room-container form button:hover {
+    background-color: #0056b3;
+  }
+  
