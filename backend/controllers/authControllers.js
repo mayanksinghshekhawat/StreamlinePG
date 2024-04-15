@@ -1,8 +1,8 @@
 
-const User = require('../models/user')
+const User = require('../models/User')
 const jwt = require('jsonwebtoken');
 const RentHome = require('../models/RentHome');
-const Roomy = require('../models/roomy');
+const Roomy = require('../models/Roomy');
 const test = (req,res)=>{
     res.json("Hello World");
 }
