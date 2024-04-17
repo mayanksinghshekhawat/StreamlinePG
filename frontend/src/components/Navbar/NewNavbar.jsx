@@ -25,7 +25,7 @@ function NewNavbar() {
     <div className="right">
     <Link to="/">Home</Link>
     <Link to="/map">Discover</Link>
-    <Link to="/map">Roommates</Link>
+    <Link to="/roomMate">Roommates</Link>
     <button onClick={() => handleSignupClick()}>Signup</button>
     <button onClick={() => handleLoginClick()}>Login</button>
     

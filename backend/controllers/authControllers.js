@@ -130,8 +130,17 @@ const roomyForm = async (req,res)=>{
         console.error(error);
     }
 }
-
+const fetchRoomy = async (req, res) => {
+    try {
+      const city = req.query.city;
+      const locations = await Roomy.find({ city: city });
+      res.json(locations);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };
 
 module.exports = {
     test , userRegister , userLogin , getProfile ,houseForm,roomyForm
+    ,fetchRoomy
 }
