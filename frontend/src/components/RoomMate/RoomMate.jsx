@@ -1,7 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import './RoomMate.css'
 import vector1 from './vector1.png'
 function RoomMate(){
+  const navigate = useNavigate()
+  const handleList = () => {
+    // Redirect to another page
+    navigate('/list');
+  };
+
+  const handleFind = () => {
+    // Redirect to another page
+    navigate('/find');
+  };
+
+
   return (
     <div className="room_container">
     <div className="heroxyz">
@@ -12,8 +25,8 @@ function RoomMate(){
         </div>
 
         <div className="Buttons">
-            <button className='list'>List your room</button>
-            <button className='list1'>Find a room</button>
+            <button className='list' onClick={handleList}>List your room</button>
+            <button className='list1' onClick={handleFind}>Find a room</button>
         </div>
 
         </div>
