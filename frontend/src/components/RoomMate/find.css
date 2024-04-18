@@ -7,7 +7,7 @@
     align-items: center;
     justify-content:center;
     gap: 5rem;
-    height: 90vh;
+    height: 80vh;
 }
 .announcement {
     text-align: center;
@@ -144,5 +144,11 @@ box-sizing: border-box;
     padding: 5px 5px;
     background-color: #f4f0f0;
 }
-
+.Contentx{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    /* height: 90vh; */
+}
 
